@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://d0j1rs0ktcog7"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_jwifg"]
+[ext_resource type="Script" path="res://Assets/Scenes/Main_Menu/main_menu.gd" id="1_jwifg"]
 [ext_resource type="Texture2D" uid="uid://br3cwt4yj86jp" path="res://placeholders/sketch1737841184264.png" id="2_bbvab"]
 [ext_resource type="Texture2D" uid="uid://3cy5qul25dpv" path="res://placeholders/btn_salir_normal.png" id="2_ik4sb"]
 [ext_resource type="Texture2D" uid="uid://cpdleovqdy8qx" path="res://placeholders/btn_jugar_normal1.png" id="2_ui15a"]
@@ -26,12 +26,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jwifg")
 
-[node name="Sketch1737841184264" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(961.91, 687)
-scale = Vector2(0.545161, 0.545161)
-texture = ExtResource("2_bbvab")
-
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -49,14 +43,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = 14.0
+offset_top = -43.0
 offset_right = 150.0
-offset_bottom = 247.0
+offset_bottom = 198.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 
 [node name="btn_play" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 texture_normal = ExtResource("2_ui15a")
 texture_pressed = ExtResource("3_i420l")
 texture_hover = ExtResource("4_jg52d")
@@ -64,6 +60,7 @@ stretch_mode = 0
 
 [node name="btn_how2play" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 texture_normal = ExtResource("5_45ima")
 texture_pressed = ExtResource("6_7oh1m")
 texture_hover = ExtResource("7_yvx5s")
@@ -71,6 +68,7 @@ stretch_mode = 0
 
 [node name="btn_exit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 texture_normal = ExtResource("2_ik4sb")
 texture_pressed = ExtResource("3_oeu2j")
 texture_hover = ExtResource("4_o6pi8")
@@ -82,9 +80,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -278.0
-offset_top = 52.0
+offset_top = 141.0
 offset_right = 278.0
-offset_bottom = 302.0
+offset_bottom = 391.0
 grow_horizontal = 2
 texture = ExtResource("11_w0ynd")
 
