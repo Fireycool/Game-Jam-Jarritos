@@ -1,20 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://13h6yog67fem"]
+[gd_scene load_steps=4 format=3 uid="uid://13h6yog67fem"]
 
 [ext_resource type="Texture2D" uid="uid://dx7ro0i2qf6ul" path="res://icon.svg" id="1_vbdlh"]
+[ext_resource type="PackedScene" uid="uid://4bu0b6ve3vs0" path="res://Player Assets/player.tscn" id="2_e82v7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icxj6"]
+size = Vector2(128, 128)
 
 [node name="Level 1" type="Node2D"]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(242, 780)
-scale = Vector2(3.8125, 3.8125)
+[node name="PISO" type="StaticBody2D" parent="."]
+position = Vector2(464, 701)
+scale = Vector2(7.44, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PISO"]
+shape = SubResource("RectangleShape2D_icxj6")
+
+[node name="Sprite2D" type="Sprite2D" parent="PISO"]
 texture = ExtResource("1_vbdlh")
 
-[node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(609, 779)
-scale = Vector2(3.8125, 3.8125)
-texture = ExtResource("1_vbdlh")
+[node name="ENTITIES" type="Node2D" parent="."]
 
-[node name="Icon3" type="Sprite2D" parent="."]
-position = Vector2(1021, 772)
-scale = Vector2(3.8125, 3.8125)
-texture = ExtResource("1_vbdlh")
+[node name="Player" parent="ENTITIES" instance=ExtResource("2_e82v7")]
+position = Vector2(75, 574)
+scale = Vector2(1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="ENTITIES/Player"]
+offset = Vector2(0, -60)
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
