@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0j1rs0ktcog7"]
+[gd_scene load_steps=14 format=3 uid="uid://d0j1rs0ktcog7"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_u2bay"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_jwifg"]
+[ext_resource type="Texture2D" uid="uid://br3cwt4yj86jp" path="res://placeholders/sketch1737841184264.png" id="2_bbvab"]
+[ext_resource type="Texture2D" uid="uid://3cy5qul25dpv" path="res://placeholders/btn_salir_normal.png" id="2_ik4sb"]
+[ext_resource type="Texture2D" uid="uid://cpdleovqdy8qx" path="res://placeholders/btn_jugar_normal1.png" id="2_ui15a"]
+[ext_resource type="Texture2D" uid="uid://b3wfrg40mkt0p" path="res://placeholders/btn_jugar_pressed.png" id="3_i420l"]
+[ext_resource type="Texture2D" uid="uid://cxnr88feby8db" path="res://placeholders/btn_salir_pressed.png" id="3_oeu2j"]
+[ext_resource type="Texture2D" uid="uid://dl38e3mp36i1p" path="res://placeholders/btn_jugar_hoover.png" id="4_jg52d"]
+[ext_resource type="Texture2D" uid="uid://brx8807hbupso" path="res://placeholders/btn_salir_hover.png" id="4_o6pi8"]
+[ext_resource type="Texture2D" uid="uid://b5h10rba14gu5" path="res://placeholders/btn_how2play_normal.png" id="5_45ima"]
+[ext_resource type="Texture2D" uid="uid://k0ugxkl4q6wv" path="res://placeholders/btn_how2play_pressed.png" id="6_7oh1m"]
+[ext_resource type="Texture2D" uid="uid://c0ji2t8lxq5ud" path="res://placeholders/btn_how2play_hoover.png" id="7_yvx5s"]
+[ext_resource type="Texture2D" uid="uid://cu6v6p2gu17cw" path="res://placeholders/img_logo_juego.png" id="11_w0ynd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gtnqo"]
+texture = ExtResource("2_bbvab")
+region_rect = Rect2(0, 460.975, 3508, 1844.59)
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -9,28 +24,70 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_u2bay")
+script = ExtResource("1_jwifg")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Sketch1737841184264" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(961.91, 687)
+scale = Vector2(0.545161, 0.545161)
+texture = ExtResource("2_bbvab")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gtnqo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 14.0
+offset_right = 150.0
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="btn_play" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("2_ui15a")
+texture_pressed = ExtResource("3_i420l")
+texture_hover = ExtResource("4_jg52d")
+stretch_mode = 0
 
-[node name="btn_play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="btn_how2play" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "Jugar"
+texture_normal = ExtResource("5_45ima")
+texture_pressed = ExtResource("6_7oh1m")
+texture_hover = ExtResource("7_yvx5s")
+stretch_mode = 0
 
-[node name="btn_how2play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="btn_exit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "Como Jugar"
+texture_normal = ExtResource("2_ik4sb")
+texture_pressed = ExtResource("3_oeu2j")
+texture_hover = ExtResource("4_o6pi8")
+stretch_mode = 0
 
-[node name="btn_exit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Salir"
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -278.0
+offset_top = 52.0
+offset_right = 278.0
+offset_bottom = 302.0
+grow_horizontal = 2
+texture = ExtResource("11_w0ynd")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/btn_play" to="." method="_on_btn_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/btn_how2play" to="." method="_on_btn_how_2_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/btn_exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_play" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_how2play" to="." method="_on_btn_how_2_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_exit" to="." method="_on_btn_exit_pressed"]
