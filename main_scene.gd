@@ -11,6 +11,11 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_level_1_pressed():
+	pass # Replace with function body.
+
+
+
+
+func _on_btn_play_pressed() -> void:
 	pass # Replace with function body.
