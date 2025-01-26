@@ -26,9 +26,16 @@ var coyote_jump_available : bool = true
 var direction = 1
 var speen = false
 
-
+var heart_list : Array[TextureRect]
+var health = 5 
+var maxHealth = 5
 
 func _ready():
+	var hearts_parent = $Healthbar/HBoxContainer
+	for child in hearts_parent.get_children():
+		heart_list.append(child)
+	print(heart_list)
+	
 	# Setup del Input Buffer Timer
 	input_buffer = Timer.new()
 	input_buffer.wait_time = INPUT_BUTTER_PATIENCE
@@ -101,8 +108,6 @@ func _physics_process(delta):
 	
 	# Aplicar Velocidad
 	move_and_slide()
-
-
 
 # Manejo de Cambios de Gravedad
 func get_grav(input_dir : float = 0) -> float:
