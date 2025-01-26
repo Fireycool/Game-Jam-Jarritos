@@ -2,6 +2,10 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var right_sprite_2d = $Right_Shot
+@onready var left_sprite_2d = $Left_Shot
+@onready var down_sprite_2d = $Down_Shot
+
 @export var SPEED = 350.0
 @export var ACCELERATION = 1200.0
 @export var FRICTION = 1400.0
@@ -33,11 +37,6 @@ var health = 5
 var maxHealth = 5
 
 func _ready():
-	var hearts_parent = $Healthbar/HBoxContainer
-	for child in hearts_parent.get_children():
-		heart_list.append(child)
-	print(heart_list)
-	
 	# Setup del Input Buffer Timer
 	input_buffer = Timer.new()
 	input_buffer.wait_time = INPUT_BUTTER_PATIENCE
@@ -100,6 +99,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			animated_sprite_2d.play("default")
 	
+	#DISPARO
 	if side_shot_attempted:
 		speen = false
 		if horizontal_input:
@@ -111,6 +111,15 @@ func _physics_process(delta):
 				velocity.y = velocity.y + SHOOT_BOOST
 			else:
 				velocity.y = SHOOT_BOOST
+		
+		#ANIMACION DE DISPARO
+		if direction > 0:
+			right_sprite_2d.play("SHOT")
+		elif direction < 0:
+			left_sprite_2d.play("SHOT")
+	else:
+		left_sprite_2d.play("default")
+		right_sprite_2d.play("default")
 	
 	if direction > 0:
 		animated_sprite_2d.flip_h = false
@@ -121,6 +130,9 @@ func _physics_process(delta):
 	if down_shot_attempted:
 		velocity.y = SHOOT_JUMP
 		speen = true
+		down_sprite_2d.play("SHOT")
+	else:
+		down_sprite_2d.play("default")
 	
 	# Aplicar Velocidad
 	move_and_slide()
