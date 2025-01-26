@@ -1,34 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://mwjluxc6cueu"]
+[gd_scene load_steps=4 format=3 uid="uid://mwjluxc6cueu"]
 
 [ext_resource type="Texture2D" uid="uid://weeey68usx0e" path="res://Assets/Map_Assets/Goal.png" id="1_hdnbx"]
 
 [sub_resource type="GDScript" id="GDScript_5xkll"]
-script/source = "extends StaticBody2D
+script/source = "extends Area2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_collision_shape_2d_child_entered_tree(node: Node) -> void:
-	pass # Replace with function body.
+func _on_body_entered(_body):
+	get_tree().change_scene_to_file(\"res://Assets/Scenes/Main_Menu/main_menu.tscn\")
 "
 
-[node name="End_Goal" type="StaticBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etd0c"]
+size = Vector2(20.6758, 17.0836)
+
+[node name="End_Goal" type="Area2D"]
+collision_layer = 16
 script = SubResource("GDScript_5xkll")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_hdnbx")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(1, 24.5)
-polygon = PackedVector2Array(-32, -25.5, -32, 25.5, 32, 25.5, 32, -25.5, 37, -22.5, 40, -27.5, 5.96046e-08, -58.5, -40, -28.5, -36, -22.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.04449, 23)
+scale = Vector2(3.0911, 3.16092)
+shape = SubResource("RectangleShape2D_etd0c")
 
-[connection signal="child_entered_tree" from="CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
