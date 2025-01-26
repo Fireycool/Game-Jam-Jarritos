@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4bu0b6ve3vs0"]
+[gd_scene load_steps=17 format=3 uid="uid://4bu0b6ve3vs0"]
 
 [ext_resource type="Script" path="res://Assets/Player Assets/player.gd" id="1_c4hpy"]
 [ext_resource type="Texture2D" uid="uid://cfm22dj82uc72" path="res://Assets/Player Assets/Animations/Walking/1.png" id="2_e3jp2"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bxw1f7458ubj7" path="res://Assets/Player Assets/Animations/Walking/2.png" id="3_e852f"]
 [ext_resource type="Texture2D" uid="uid://bxc3dmovf0efx" path="res://Assets/Player Assets/Animations/Walking/3.png" id="3_mvndc"]
 [ext_resource type="Texture2D" uid="uid://b1km6gtl1yhe3" path="res://Assets/Player Assets/Animations/Walking/4.png" id="4_sseuw"]
+[ext_resource type="Texture2D" uid="uid://yol27j5mb6xj" path="res://Assets/Player Assets/Animations/Idle/1.png" id="6_d0277"]
 [ext_resource type="Texture2D" uid="uid://djq4nctubx8wy" path="res://Assets/Player Assets/Animations/SHOT/1.png" id="6_jvcdy"]
 [ext_resource type="Texture2D" uid="uid://c1atg66idmd5" path="res://Assets/Player Assets/Animations/SHOT/2.png" id="7_fcyn3"]
+[ext_resource type="Texture2D" uid="uid://31takcwr3d52" path="res://Assets/Player Assets/Animations/Idle/2.png" id="7_wuhtt"]
 [ext_resource type="Texture2D" uid="uid://h6gd3pmp3qa2" path="res://Assets/Player Assets/Animations/SHOT/3.png" id="8_tcum2"]
 [ext_resource type="Texture2D" uid="uid://cflorspy5eq7j" path="res://Assets/Player Assets/Animations/SHOT/4.png" id="9_505vg"]
 
@@ -51,11 +53,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_e3jp2")
+"texture": ExtResource("6_d0277")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wuhtt")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cnea"]
@@ -98,6 +103,7 @@ script = ExtResource("1_c4hpy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6liha")
+frame_progress = 0.918988
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4cnea")
