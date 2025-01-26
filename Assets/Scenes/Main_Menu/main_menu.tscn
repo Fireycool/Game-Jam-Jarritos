@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0j1rs0ktcog7"]
+[gd_scene load_steps=15 format=3 uid="uid://d0j1rs0ktcog7"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/Main_Menu/main_menu.gd" id="1_jwifg"]
 [ext_resource type="Texture2D" uid="uid://br3cwt4yj86jp" path="res://placeholders/sketch1737841184264.png" id="2_bbvab"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ci1pmwsc0rgif" path="res://Assets/UI Assets/btn_salir (3).png" id="11_f5r8m"]
 [ext_resource type="Texture2D" uid="uid://dtb5e752ipvvf" path="res://Assets/UI Assets/StickySodaLogo.png" id="12_kicmr"]
 [ext_resource type="Texture2D" uid="uid://btolj8jgv5ym6" path="res://Assets/UI Assets/btn_salir (2).png" id="12_rd6ak"]
+[ext_resource type="AudioStream" uid="uid://c4hm45u8yub83" path="res://Assets/Audio/Hyperfun.mp3" id="13_wcxs5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gtnqo"]
 texture = ExtResource("2_bbvab")
@@ -82,6 +83,9 @@ texture_normal = ExtResource("10_whx73")
 texture_pressed = ExtResource("11_f5r8m")
 texture_hover = ExtResource("12_rd6ak")
 stretch_mode = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_wcxs5")
 
 [connection signal="pressed" from="VBoxContainer/btn_play" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/btn_how2play" to="." method="_on_btn_how_2_play_pressed"]
