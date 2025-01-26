@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Assets/Scenes/How_To_Play/how_2_play.gd" id="1_vxi7r"]
 [ext_resource type="Texture2D" uid="uid://br3cwt4yj86jp" path="res://placeholders/sketch1737841184264.png" id="2_8b82j"]
-[ext_resource type="Texture2D" uid="uid://j8njv5u0ddub" path="res://placeholders/btn_regresar_normal.png" id="2_551e3"]
-[ext_resource type="Texture2D" uid="uid://bqotrq1xhm5sp" path="res://placeholders/btn_regresar_pressed.png" id="3_4exfk"]
-[ext_resource type="Texture2D" uid="uid://dqj5ptp2n3ija" path="res://placeholders/btn_regresar_hoover.png" id="4_amc53"]
+[ext_resource type="Texture2D" uid="uid://dtb3863wkvfxa" path="res://Assets/UI Assets/btn_regresar (1).png" id="3_quuc2"]
+[ext_resource type="Texture2D" uid="uid://bkw6kcshry3ll" path="res://Assets/UI Assets/btn_regresar (3).png" id="4_f3qlc"]
+[ext_resource type="Texture2D" uid="uid://dr6m65bm6c38u" path="res://Assets/UI Assets/btn_regresar (2).png" id="5_50yqi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6eu8r"]
 texture = ExtResource("2_8b82j")
@@ -35,19 +35,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = 309.0
-offset_right = 150.0
-offset_bottom = 384.0
+offset_left = -250.0
+offset_top = 369.0
+offset_right = 750.0
+offset_bottom = 619.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 size_flags_vertical = 4
 
 [node name="btn_retunr_main_menu" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_551e3")
-texture_pressed = ExtResource("3_4exfk")
-texture_hover = ExtResource("4_amc53")
+texture_normal = ExtResource("3_quuc2")
+texture_pressed = ExtResource("4_f3qlc")
+texture_hover = ExtResource("5_50yqi")
 stretch_mode = 0
 
 [connection signal="pressed" from="VBoxContainer/btn_retunr_main_menu" to="." method="_on_texture_button_pressed"]

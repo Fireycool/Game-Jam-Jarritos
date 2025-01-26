@@ -15,6 +15,10 @@ run/main_scene="res://Assets/Scenes/Main_Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Assets/Gameplay Assets/Global.gd"
+
 [display]
 
 window/size/viewport_width=1920

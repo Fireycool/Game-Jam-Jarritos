@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4kfhb8kfvp7b"]
 
-[ext_resource type="Texture2D" uid="uid://bj3h6ppnyjy0w" path="res://Assets/Player Assets/Game Ui/Sprites/Full-Heart.png" id="1_oylp8"]
+[ext_resource type="Texture2D" uid="uid://bj3h6ppnyjy0w" path="res://Assets/UI Assets/Sprites/Full-Heart.png" id="1_oylp8"]
 
 [node name="HeartsContainer" type="HBoxContainer"]
 offset_right = 5016.0

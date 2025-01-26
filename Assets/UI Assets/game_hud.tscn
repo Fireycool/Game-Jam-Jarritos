@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgdep1urwnkjl"]
+[gd_scene load_steps=4 format=3 uid="uid://dgdep1urwnkjl"]
 
 [ext_resource type="Script" path="res://Assets/UI Assets/game_hud.gd" id="1_tq0oh"]
 [ext_resource type="PackedScene" uid="uid://b4kfhb8kfvp7b" path="res://Assets/UI Assets/hearts_container.tscn" id="2_3cu53"]
+[ext_resource type="PackedScene" uid="uid://dc2lolwgj3i1k" path="res://Assets/Gameplay Assets/timer.tscn" id="3_hnycr"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -14,3 +15,5 @@ script = ExtResource("1_tq0oh")
 
 [node name="HeartsContainer" parent="." instance=ExtResource("2_3cu53")]
 layout_mode = 0
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_hnycr")]
