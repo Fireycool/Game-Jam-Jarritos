@@ -207,6 +207,20 @@ scale = Vector2(5.7253, 5.7253)
 position = Vector2(-424, 773)
 scale = Vector2(0.5, 0.5)
 collision_mask = 14
+SPEED = 800.0
+ACCELERATION = 1600.0
+FRICTION = 2000.0
+GRAVITY = 3000.0
+FALL_GRAVITY = 5000.0
+FAST_FALL_GRAVITY = 9000.0
+WALL_GRAVITY = 90.0
+JUMP_VELOCITY = -1400.0
+WALL_JUMP_VELOCITY = -1400.0
+WALL_JUMP_PUSHBACK = 600.0
+INPUT_BUTTER_PATIENCE = 0.2
+SHOOT_RECOIL = 1400.0
+SHOOT_BOOST = -300.0
+SHOOT_JUMP = -1400.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
