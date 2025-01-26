@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://u6tj5t5ejijy" path="res://Assets/Map_Assets/soil_no_collision.png" id="9_6p71v"]
 [ext_resource type="Texture2D" uid="uid://brx6cfbwaiwvv" path="res://Assets/Map_Assets/fondo_Verde.png" id="9_trb6e"]
 [ext_resource type="Texture2D" uid="uid://qymw3vu2ufnv" path="res://Assets/Map_Assets/Ground_Texture_soil.png" id="9_wxvgl"]
+[ext_resource type="PackedScene" uid="uid://mwjluxc6cueu" path="res://Assets/Gameplay Assets/end_goal.tscn" id="10_0ebq2"]
 [ext_resource type="Texture2D" uid="uid://bj20s67bgjfsy" path="res://Assets/Map_Assets/Ground_Texture_Wall_L.png" id="10_t6si6"]
 [ext_resource type="Texture2D" uid="uid://bktayy52tsvoa" path="res://Assets/Map_Assets/Ground_Texture_Wall_R.png" id="11_c2qlm"]
 [ext_resource type="PackedScene" uid="uid://4bu0b6ve3vs0" path="res://Assets/Player Assets/player.tscn" id="12_nqlgi"]
