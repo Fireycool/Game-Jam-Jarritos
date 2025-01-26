@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+
+@onready var animated_sprite_2d = $AnimatedSprite2D
 @export var SPEED = 350.0
 @export var ACCELERATION = 1200.0
 @export var FRICTION = 1400.0
@@ -25,7 +27,6 @@ var coyote_timer : Timer
 var coyote_jump_available : bool = true
 var direction = 1
 var speen = false
-
 
 
 func _ready():
@@ -64,6 +65,10 @@ func _physics_process(delta):
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = JUMP_VELOCITY / 4
 	
+	if velocity.y < 0:
+		animated_sprite_2d.play("JUMP")
+	elif velocity.y > 0 and !is_on_floor():
+		animated_sprite_2d.play("FALL")
 	
 	if is_on_floor():
 		coyote_jump_available = true
@@ -79,9 +84,13 @@ func _physics_process(delta):
 	var floor_damping : float = 1.0 if is_on_floor() else 0.2
 	if horizontal_input:
 		velocity.x = move_toward(velocity.x, horizontal_input * SPEED, ACCELERATION * delta)
+		if is_on_floor():
+			animated_sprite_2d.play("RUN")
 		direction = horizontal_input
 	else:
 		velocity.x = move_toward(velocity.x, 0, (FRICTION * delta) * floor_damping)
+		if is_on_floor():
+			animated_sprite_2d.play("default")
 	
 	if side_shot_attempted:
 		speen = false
@@ -94,6 +103,12 @@ func _physics_process(delta):
 				velocity.y = velocity.y + SHOOT_BOOST
 			else:
 				velocity.y = SHOOT_BOOST
+	
+	if direction > 0:
+		animated_sprite_2d.flip_h = false
+	elif direction < 0:
+		animated_sprite_2d.flip_h = true
+
 	
 	if down_shot_attempted:
 		velocity.y = SHOOT_JUMP

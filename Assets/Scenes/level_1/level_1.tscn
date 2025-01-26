@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://qymw3vu2ufnv" path="res://Assets/Map_Assets/Ground_Texture_soil.png" id="9_wxvgl"]
 [ext_resource type="Texture2D" uid="uid://bj20s67bgjfsy" path="res://Assets/Map_Assets/Ground_Texture_Wall_L.png" id="10_t6si6"]
 [ext_resource type="Texture2D" uid="uid://bktayy52tsvoa" path="res://Assets/Map_Assets/Ground_Texture_Wall_R.png" id="11_c2qlm"]
-[ext_resource type="PackedScene" uid="uid://4bu0b6ve3vs0" path="res://Player Assets/player.tscn" id="12_nqlgi"]
+[ext_resource type="PackedScene" uid="uid://4bu0b6ve3vs0" path="res://Assets/Player Assets/player.tscn" id="12_nqlgi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j07uh"]
 texture = ExtResource("3_np7m8")
@@ -119,7 +119,6 @@ tile_map_data = PackedByteArray("AAAGAAkAAQAAAAAAAAAAAAkAAQAAAAAAAAABAAkAAQAAAAA
 tile_set = SubResource("TileSet_1e3et")
 
 [node name="Player" parent="TileMapLayer" instance=ExtResource("12_nqlgi")]
-scale = Vector2(10, 10)
 collision_mask = 14
 
 [node name="Camera2D" type="Camera2D" parent="TileMapLayer/Player"]
