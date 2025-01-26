@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var left_sprite_2d = $Left_Shot
 @onready var down_sprite_2d = $Down_Shot
 
+@onready var ammo = $AmmoBar
+
 @export var SPEED = 350.0
 @export var ACCELERATION = 1200.0
 @export var FRICTION = 1400.0
@@ -52,6 +54,8 @@ func _ready():
 	coyote_timer.one_shot = true
 	add_child(coyote_timer)
 	coyote_timer.timeout.connect(coyote_timeout)
+	
+	ammo.value = 3
 
 func _physics_process(delta):
 	var horizontal_input = Input.get_axis("left","right")
@@ -59,6 +63,8 @@ func _physics_process(delta):
 	var side_shot_attempted = Input.is_action_just_pressed("shoot side")
 	var down_shot_attempted = Input.is_action_just_pressed("shoot down")
 	
+	if ammo.value < 3:
+		ammo.value += 0.01
 	
 	# Manejo de Salto y agregar Gravedad
 	if jump_attempted or input_buffer.time_left > 0:
@@ -103,8 +109,9 @@ func _physics_process(delta):
 			animated_sprite_2d.play("default")
 	
 	#DISPARO
-	if side_shot_attempted:
+	if side_shot_attempted and ammo.value > 1:
 		speen = false
+		ammo.value -= 1
 		#ANIMACION DE DISPARO
 		if direction > 0 and !shoot_right:
 			velocity.x = SHOOT_RECOIL * -sign(direction)
@@ -133,7 +140,8 @@ func _physics_process(delta):
 		animated_sprite_2d.flip_h = true
 
 	
-	if down_shot_attempted and !shoot_down:
+	if down_shot_attempted and !shoot_down and ammo.value > 1:
+		ammo.value -= 1
 		velocity.y = SHOOT_JUMP
 		speen = true
 		down_sprite_2d.play("SHOT")

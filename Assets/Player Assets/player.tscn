@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4bu0b6ve3vs0"]
+[gd_scene load_steps=20 format=3 uid="uid://4bu0b6ve3vs0"]
 
 [ext_resource type="Script" path="res://Assets/Player Assets/player.gd" id="1_c4hpy"]
 [ext_resource type="Texture2D" uid="uid://dgvfvo2nr1v3i" path="res://Assets/Player Assets/Animations/Walking/Correr_4.png" id="2_0geam"]
@@ -97,7 +97,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwtgb"]
-size = Vector2(1473.68, 20)
+size = Vector2(1473.68, 11.1403)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crd2l"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_asr83"]
+bg_color = Color(1, 0.666667, 0, 1)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c4hpy")
@@ -159,6 +165,18 @@ position = Vector2(-900, 0)
 scale = Vector2(1.37717, 18.4168)
 shape = SubResource("RectangleShape2D_lwtgb")
 disabled = true
+
+[node name="AmmoBar" type="ProgressBar" parent="."]
+offset_left = -243.0
+offset_top = -338.0
+offset_right = -142.0
+offset_bottom = -77.0
+theme_override_styles/background = SubResource("StyleBoxFlat_crd2l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_asr83")
+max_value = 3.0
+value = 1.0
+fill_mode = 3
+show_percentage = false
 
 [connection signal="animation_finished" from="Right_Shot" to="." method="_on_right_shot_animation_finished"]
 [connection signal="animation_finished" from="Down_Shot" to="." method="_on_down_shot_animation_finished"]
