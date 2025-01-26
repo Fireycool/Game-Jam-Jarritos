@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://Assets/Scenes/Main_Menu/main_menu.gd" id="1_jwifg"]
 [ext_resource type="Texture2D" uid="uid://br3cwt4yj86jp" path="res://placeholders/sketch1737841184264.png" id="2_bbvab"]
-[ext_resource type="Texture2D" uid="uid://3cy5qul25dpv" path="res://placeholders/btn_salir_normal.png" id="2_ik4sb"]
-[ext_resource type="Texture2D" uid="uid://cpdleovqdy8qx" path="res://placeholders/btn_jugar_normal1.png" id="2_ui15a"]
-[ext_resource type="Texture2D" uid="uid://b3wfrg40mkt0p" path="res://placeholders/btn_jugar_pressed.png" id="3_i420l"]
-[ext_resource type="Texture2D" uid="uid://cxnr88feby8db" path="res://placeholders/btn_salir_pressed.png" id="3_oeu2j"]
-[ext_resource type="Texture2D" uid="uid://dl38e3mp36i1p" path="res://placeholders/btn_jugar_hoover.png" id="4_jg52d"]
-[ext_resource type="Texture2D" uid="uid://brx8807hbupso" path="res://placeholders/btn_salir_hover.png" id="4_o6pi8"]
+[ext_resource type="Texture2D" uid="uid://dbeilrirr06k1" path="res://Assets/UI Assets/btn_jugar (1).png" id="4_1xsya"]
 [ext_resource type="Texture2D" uid="uid://b5h10rba14gu5" path="res://placeholders/btn_how2play_normal.png" id="5_45ima"]
+[ext_resource type="Texture2D" uid="uid://dnppmkgdgkjcg" path="res://Assets/UI Assets/btn_jugar (3).png" id="5_kshuv"]
 [ext_resource type="Texture2D" uid="uid://k0ugxkl4q6wv" path="res://placeholders/btn_how2play_pressed.png" id="6_7oh1m"]
+[ext_resource type="Texture2D" uid="uid://buk861f8j6jm1" path="res://Assets/UI Assets/btn_jugar (2).png" id="6_131ss"]
 [ext_resource type="Texture2D" uid="uid://c0ji2t8lxq5ud" path="res://placeholders/btn_how2play_hoover.png" id="7_yvx5s"]
+[ext_resource type="Texture2D" uid="uid://b8ljamktahnaj" path="res://Assets/UI Assets/btn_salir (1).png" id="10_whx73"]
+[ext_resource type="Texture2D" uid="uid://ci1pmwsc0rgif" path="res://Assets/UI Assets/btn_salir (3).png" id="11_f5r8m"]
 [ext_resource type="Texture2D" uid="uid://dtb5e752ipvvf" path="res://Assets/UI Assets/StickySodaLogo.png" id="12_kicmr"]
+[ext_resource type="Texture2D" uid="uid://btolj8jgv5ym6" path="res://Assets/UI Assets/btn_salir (2).png" id="12_rd6ak"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gtnqo"]
 texture = ExtResource("2_bbvab")
@@ -35,27 +35,35 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_gtnqo")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 664.0
+offset_right = 2664.0
+offset_bottom = 2000.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_kicmr")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -43.0
-offset_right = 150.0
-offset_bottom = 198.0
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -591.0
+offset_right = 712.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+scale = Vector2(0.58, 0.58)
 theme_override_constants/separation = 8
 
 [node name="btn_play" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture_normal = ExtResource("2_ui15a")
-texture_pressed = ExtResource("3_i420l")
-texture_hover = ExtResource("4_jg52d")
+texture_normal = ExtResource("4_1xsya")
+texture_pressed = ExtResource("5_kshuv")
+texture_hover = ExtResource("6_131ss")
 stretch_mode = 0
 
 [node name="btn_how2play" type="TextureButton" parent="VBoxContainer"]
@@ -69,18 +77,10 @@ stretch_mode = 0
 [node name="btn_exit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture_normal = ExtResource("2_ik4sb")
-texture_pressed = ExtResource("3_oeu2j")
-texture_hover = ExtResource("4_o6pi8")
+texture_normal = ExtResource("10_whx73")
+texture_pressed = ExtResource("11_f5r8m")
+texture_hover = ExtResource("12_rd6ak")
 stretch_mode = 0
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 664.0
-offset_right = 2664.0
-offset_bottom = 2000.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("12_kicmr")
 
 [connection signal="pressed" from="VBoxContainer/btn_play" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/btn_how2play" to="." method="_on_btn_how_2_play_pressed"]

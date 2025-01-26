@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://mwjluxc6cueu"]
+
+[ext_resource type="Texture2D" uid="uid://weeey68usx0e" path="res://Assets/Map_Assets/Goal.png" id="1_hdnbx"]
+
+[node name="End_Goal" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_hdnbx")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, 24.5)
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-32, -25.5, -32, 25.5, 32, 25.5, 32, -25.5, 37, -22.5, 40, -27.5, 5.96046e-08, -58.5, -40, -28.5, -36, -22.5)
