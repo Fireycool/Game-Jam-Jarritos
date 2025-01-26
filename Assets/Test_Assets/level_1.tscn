@@ -72,4 +72,4 @@ offset = Vector2(0, -60)
 position_smoothing_enabled = true
 
 [node name="CharacterBody2D" parent="ENTITIES" instance=ExtResource("3_v3m72")]
-position = Vector2(624, 591)
+position = Vector2(459, 598)
