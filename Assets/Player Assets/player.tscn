@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://4bu0b6ve3vs0"]
+[gd_scene load_steps=18 format=3 uid="uid://4bu0b6ve3vs0"]
 
 [ext_resource type="Script" path="res://Assets/Player Assets/player.gd" id="1_c4hpy"]
 [ext_resource type="Texture2D" uid="uid://dgvfvo2nr1v3i" path="res://Assets/Player Assets/Animations/Walking/Correr_4.png" id="2_0geam"]
 [ext_resource type="Script" path="res://Assets/Gameplay Assets/Hitbox.gd" id="3_8l1kf"]
 [ext_resource type="Texture2D" uid="uid://dnkey7oa5se65" path="res://Assets/Player Assets/Animations/Walking/Correr_3.png" id="3_gundc"]
+[ext_resource type="Texture2D" uid="uid://dfx1quhirml5f" path="res://Assets/Player Assets/Animations/Walking/jump.png" id="3_urylv"]
 [ext_resource type="Texture2D" uid="uid://bv3of6r1oah1m" path="res://Assets/Player Assets/Animations/Walking/Correr_2.png" id="4_lu8i4"]
 [ext_resource type="Texture2D" uid="uid://cemhudbqmyk3h" path="res://Assets/Player Assets/Animations/Walking/Correr_1.png" id="5_6tqyk"]
 [ext_resource type="Texture2D" uid="uid://yol27j5mb6xj" path="res://Assets/Player Assets/Animations/Idle/1.png" id="6_d0277"]
@@ -25,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gundc")
+"texture": ExtResource("3_urylv")
 }],
 "loop": true,
 "name": &"JUMP",
@@ -103,7 +104,6 @@ script = ExtResource("1_c4hpy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6liha")
-animation = &"FALL"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4cnea")

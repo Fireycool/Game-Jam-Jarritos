@@ -73,3 +73,4 @@ position_smoothing_enabled = true
 
 [node name="GumGum" parent="ENTITIES" instance=ExtResource("3_v3m72")]
 position = Vector2(386, 507)
+SPEED = 200

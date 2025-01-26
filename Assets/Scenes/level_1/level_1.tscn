@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bj20s67bgjfsy" path="res://Assets/Map_Assets/Ground_Texture_Wall_L.png" id="10_t6si6"]
 [ext_resource type="Texture2D" uid="uid://bktayy52tsvoa" path="res://Assets/Map_Assets/Ground_Texture_Wall_R.png" id="11_c2qlm"]
 [ext_resource type="PackedScene" uid="uid://4bu0b6ve3vs0" path="res://Assets/Player Assets/player.tscn" id="12_nqlgi"]
-[ext_resource type="PackedScene" uid="uid://dler0khdpgjhm" path="res://Assets/Map_Assets/moving_platform.tscn" id="13_jqsup"]
+[ext_resource type="PackedScene" path="res://Assets/Map_Assets/moving_platform.tscn" id="13_jqsup"]
 [ext_resource type="PackedScene" uid="uid://dgdep1urwnkjl" path="res://Assets/UI Assets/game_hud.tscn" id="16_xswob"]
 [ext_resource type="PackedScene" uid="uid://mwjluxc6cueu" path="res://Assets/Gameplay Assets/end_goal.tscn" id="19_y3euw"]
 [ext_resource type="Texture2D" uid="uid://yrnjw4igxmsc" path="res://Assets/Map_Assets/ciel_inv.png" id="21_ecsch"]
@@ -230,6 +230,20 @@ script = null
 position = Vector2(-424, 773)
 scale = Vector2(0.5, 0.5)
 collision_mask = 14
+SPEED = 800.0
+ACCELERATION = 1600.0
+FRICTION = 2000.0
+GRAVITY = 3000.0
+FALL_GRAVITY = 5000.0
+FAST_FALL_GRAVITY = 9000.0
+WALL_GRAVITY = 90.0
+JUMP_VELOCITY = -1400.0
+WALL_JUMP_VELOCITY = -1400.0
+WALL_JUMP_PUSHBACK = 600.0
+INPUT_BUTTER_PATIENCE = 0.2
+SHOOT_RECOIL = 1400.0
+SHOOT_BOOST = -300.0
+SHOOT_JUMP = -1400.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
