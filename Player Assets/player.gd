@@ -1,29 +1,31 @@
 extends CharacterBody2D
 
 
-const SPEED = 350.0
-const ACCELERATION = 1200.0
-const FRICTION = 1400.0
+@export var SPEED = 350.0
+@export var ACCELERATION = 1200.0
+@export var FRICTION = 1400.0
 
-const GRAVITY = 1500.0
-const FALL_GRAVITY = 3000.0
-const FAST_FALL_GRAVITY = 5000.0
-const WALL_GRAVITY = 25.0
+@export var GRAVITY = 1500.0
+@export var FALL_GRAVITY = 3000.0
+@export var FAST_FALL_GRAVITY = 5000.0
+@export var WALL_GRAVITY = 25.0
 
-const JUMP_VELOCITY = -700.0
-const WALL_JUMP_VELOCITY = -700.0
-const WALL_JUMP_PUSHBACK = 300.0
+@export var JUMP_VELOCITY = -700.0
+@export var WALL_JUMP_VELOCITY = -700.0
+@export var WALL_JUMP_PUSHBACK = 300.0
 
-const INPUT_BUTTER_PATIENCE = 0.1
-const COYOTE_TIME = 0.08
+@export var INPUT_BUTTER_PATIENCE = 0.1
+@export var COYOTE_TIME = 0.08
 
-const SHOOT_RECOIL = 300.0
-const SHOOT_JUMP = 800.0
+@export var SHOOT_RECOIL = 700.0
+@export var SHOOT_BOOST = -100.0
+@export var SHOOT_JUMP = -800.0
 
 var input_buffer : Timer
 var coyote_timer : Timer
 var coyote_jump_available : bool = true
-
+var direction = 1
+var speen = false
 
 func _ready():
 	# Setup del Input Buffer Timer
@@ -56,6 +58,7 @@ func _physics_process(delta):
 			velocity.x = WALL_JUMP_PUSHBACK * -sign(horizontal_input)
 		elif jump_attempted:
 			input_buffer.start()
+		speen = false
 	
 	if Input.is_action_just_released("jump") and velocity.y < 0:
 		velocity.y = JUMP_VELOCITY / 4
@@ -64,6 +67,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		coyote_jump_available = true
 		coyote_timer.stop()
+		speen = false
 	else:
 		if coyote_jump_available:
 			if coyote_timer.is_stopped():
@@ -74,10 +78,22 @@ func _physics_process(delta):
 	var floor_damping : float = 1.0 if is_on_floor() else 0.2
 	if horizontal_input:
 		velocity.x = move_toward(velocity.x, horizontal_input * SPEED, ACCELERATION * delta)
+		direction = horizontal_input
 	else:
 		velocity.x = move_toward(velocity.x, 0, (FRICTION * delta) * floor_damping)
 	
+	if side_shot_attempted:
+		speen = false
+		if horizontal_input:
+			velocity.x = SHOOT_RECOIL * -sign(horizontal_input)
+		else:
+			velocity.x = SHOOT_RECOIL * -sign(direction)
+		if velocity.y != 0:
+			velocity.y = velocity.y + SHOOT_BOOST
 	
+	if down_shot_attempted:
+		velocity.y = SHOOT_JUMP
+		speen = true
 	
 	
 	# Aplicar Velocidad

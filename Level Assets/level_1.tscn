@@ -18,6 +18,46 @@ shape = SubResource("RectangleShape2D_icxj6")
 [node name="Sprite2D" type="Sprite2D" parent="PISO"]
 texture = ExtResource("1_vbdlh")
 
+[node name="PISO4" type="StaticBody2D" parent="."]
+position = Vector2(710, 498)
+scale = Vector2(1.78531, 0.222074)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PISO4"]
+shape = SubResource("RectangleShape2D_icxj6")
+
+[node name="Sprite2D" type="Sprite2D" parent="PISO4"]
+texture = ExtResource("1_vbdlh")
+
+[node name="PISO5" type="StaticBody2D" parent="."]
+position = Vector2(431, 253)
+scale = Vector2(0.785726, -1.89667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PISO5"]
+shape = SubResource("RectangleShape2D_icxj6")
+
+[node name="Sprite2D" type="Sprite2D" parent="PISO5"]
+texture = ExtResource("1_vbdlh")
+
+[node name="PISO2" type="StaticBody2D" parent="."]
+position = Vector2(-40, 481)
+scale = Vector2(0.704171, 3.74512)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PISO2"]
+shape = SubResource("RectangleShape2D_icxj6")
+
+[node name="Sprite2D" type="Sprite2D" parent="PISO2"]
+texture = ExtResource("1_vbdlh")
+
+[node name="PISO3" type="StaticBody2D" parent="."]
+position = Vector2(982, 462)
+scale = Vector2(0.704171, 3.74512)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PISO3"]
+shape = SubResource("RectangleShape2D_icxj6")
+
+[node name="Sprite2D" type="Sprite2D" parent="PISO3"]
+texture = ExtResource("1_vbdlh")
+
 [node name="ENTITIES" type="Node2D" parent="."]
 
 [node name="Player" parent="ENTITIES" instance=ExtResource("2_e82v7")]
@@ -26,5 +66,4 @@ scale = Vector2(1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="ENTITIES/Player"]
 offset = Vector2(0, -60)
-zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
