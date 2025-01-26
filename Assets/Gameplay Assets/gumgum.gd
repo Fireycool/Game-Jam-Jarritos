@@ -20,6 +20,17 @@ func _physics_process(delta: float) -> void:
 	
 	if health.value == 0:
 		self.queue_free()
+	
+	
+	if player_pos.y > position.y:
+		$AnimatedSprite2D.play("default")
+	else:
+		$AnimatedSprite2D.play("UP")
+		
+	if player_pos.x > position.x:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
 
 func take_damage(amount: int) -> void:
 	health.value = health.value - amount

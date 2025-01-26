@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b4kfhb8kfvp7b" path="res://Assets/UI Assets/hearts_container.tscn" id="2_3cu53"]
 [ext_resource type="PackedScene" path="res://Assets/Gameplay Assets/timer.tscn" id="3_hnycr"]
 [ext_resource type="PackedScene" path="res://Assets/UI Assets/win_layer.tscn" id="4_3btg6"]
-[ext_resource type="PackedScene" path="res://Assets/UI Assets/lose_layer.tscn" id="5_ongds"]
+[ext_resource type="PackedScene" uid="uid://jkjyl1csqjdc" path="res://Assets/UI Assets/lose_layer.tscn" id="5_ongds"]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
