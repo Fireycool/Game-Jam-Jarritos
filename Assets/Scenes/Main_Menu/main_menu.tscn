@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b5h10rba14gu5" path="res://placeholders/btn_how2play_normal.png" id="5_45ima"]
 [ext_resource type="Texture2D" uid="uid://k0ugxkl4q6wv" path="res://placeholders/btn_how2play_pressed.png" id="6_7oh1m"]
 [ext_resource type="Texture2D" uid="uid://c0ji2t8lxq5ud" path="res://placeholders/btn_how2play_hoover.png" id="7_yvx5s"]
-[ext_resource type="Texture2D" uid="uid://cu6v6p2gu17cw" path="res://placeholders/img_logo_juego.png" id="11_w0ynd"]
+[ext_resource type="Texture2D" uid="uid://dtb5e752ipvvf" path="res://Assets/UI Assets/StickySodaLogo.png" id="12_kicmr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gtnqo"]
 texture = ExtResource("2_bbvab")
@@ -75,16 +75,12 @@ texture_hover = ExtResource("4_o6pi8")
 stretch_mode = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -278.0
-offset_top = 141.0
-offset_right = 278.0
-offset_bottom = 391.0
-grow_horizontal = 2
-texture = ExtResource("11_w0ynd")
+layout_mode = 0
+offset_left = 664.0
+offset_right = 2664.0
+offset_bottom = 2000.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_kicmr")
 
 [connection signal="pressed" from="VBoxContainer/btn_play" to="." method="_on_btn_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/btn_how2play" to="." method="_on_btn_how_2_play_pressed"]

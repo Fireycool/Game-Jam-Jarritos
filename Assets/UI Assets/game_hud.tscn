@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgdep1urwnkjl"]
+
+[ext_resource type="Script" path="res://Assets/Player Assets/Game Ui/game_hud.gd" id="1_tq0oh"]
+[ext_resource type="PackedScene" path="res://Assets/Player Assets/Game Ui/hearts_container.tscn" id="2_e65c4"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 103.0
+offset_top = 94.0
+offset_right = 103.0
+offset_bottom = 94.0
+script = ExtResource("1_tq0oh")
+
+[node name="HeartsContainer" parent="." instance=ExtResource("2_e65c4")]
+layout_mode = 1

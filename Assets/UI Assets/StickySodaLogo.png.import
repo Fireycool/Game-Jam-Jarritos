@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj3h6ppnyjy0w"
-path="res://.godot/imported/Full-Heart.png-5aa94613f46f72027b1494345224eedd.ctex"
+uid="uid://dtb5e752ipvvf"
+path="res://.godot/imported/StickySodaLogo.png-e689686d7bf248d5ec37992881fe5bc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player Assets/Game Ui/Sprites/Full-Heart.png"
-dest_files=["res://.godot/imported/Full-Heart.png-5aa94613f46f72027b1494345224eedd.ctex"]
+source_file="res://Assets/UI Assets/StickySodaLogo.png"
+dest_files=["res://.godot/imported/StickySodaLogo.png-e689686d7bf248d5ec37992881fe5bc1.ctex"]
 
 [params]
 
