@@ -40,7 +40,7 @@ script = ExtResource("2_p1qs3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MyHurtBox"]
 shape = SubResource("CircleShape2D_ain13")
 
-[node name="Gum Health" type="ProgressBar" parent="."]
+[node name="GumHealth" type="ProgressBar" parent="."]
 offset_left = -40.0
 offset_top = -81.0
 offset_right = 40.0
