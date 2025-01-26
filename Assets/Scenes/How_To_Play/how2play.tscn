@@ -1,14 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://bne1l4yujku7y"]
+[gd_scene load_steps=9 format=3 uid="uid://bne1l4yujku7y"]
 
 [ext_resource type="Script" path="res://Assets/Scenes/How_To_Play/how_2_play.gd" id="1_vxi7r"]
 [ext_resource type="Texture2D" uid="uid://br3cwt4yj86jp" path="res://placeholders/sketch1737841184264.png" id="2_8b82j"]
 [ext_resource type="Texture2D" uid="uid://dtb3863wkvfxa" path="res://Assets/UI Assets/btn_regresar (1).png" id="3_quuc2"]
 [ext_resource type="Texture2D" uid="uid://bkw6kcshry3ll" path="res://Assets/UI Assets/btn_regresar (3).png" id="4_f3qlc"]
 [ext_resource type="Texture2D" uid="uid://dr6m65bm6c38u" path="res://Assets/UI Assets/btn_regresar (2).png" id="5_50yqi"]
+[ext_resource type="Texture2D" uid="uid://cjknrl8gwuom4" path="res://Assets/UI Assets/How_2_Play.png" id="6_v5t6d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6eu8r"]
 texture = ExtResource("2_8b82j")
 region_rect = Rect2(0, 460.975, 3508, 1844.59)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nh1fh"]
+texture = ExtResource("6_v5t6d")
 
 [node name="how2play" type="Control"]
 layout_mode = 3
@@ -50,5 +54,14 @@ texture_normal = ExtResource("3_quuc2")
 texture_pressed = ExtResource("4_f3qlc")
 texture_hover = ExtResource("5_50yqi")
 stretch_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_left = 270.0
+offset_top = 57.0
+offset_right = 310.0
+offset_bottom = 97.0
+scale = Vector2(35.8799, 20.8442)
+theme_override_styles/panel = SubResource("StyleBoxTexture_nh1fh")
 
 [connection signal="pressed" from="VBoxContainer/btn_retunr_main_menu" to="." method="_on_texture_button_pressed"]
