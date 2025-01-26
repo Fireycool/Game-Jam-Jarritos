@@ -1,9 +1,59 @@
-[gd_scene load_steps=7 format=3 uid="uid://4bu0b6ve3vs0"]
+[gd_scene load_steps=6 format=3 uid="uid://4bu0b6ve3vs0"]
 
 [ext_resource type="Script" path="res://Assets/Player Assets/player.gd" id="1_c4hpy"]
 [ext_resource type="Texture2D" uid="uid://cfm22dj82uc72" path="res://Assets/Player Assets/Animations/Walking/1.png" id="2_e3jp2"]
 [ext_resource type="Script" path="res://Assets/Gameplay Assets/Hitbox.gd" id="3_8l1kf"]
+[ext_resource type="Texture2D" uid="uid://bxw1f7458ubj7" path="res://Assets/Player Assets/Animations/Walking/2.png" id="3_e852f"]
+[ext_resource type="Texture2D" uid="uid://bxc3dmovf0efx" path="res://Assets/Player Assets/Animations/Walking/3.png" id="3_mvndc"]
+[ext_resource type="Texture2D" uid="uid://b1km6gtl1yhe3" path="res://Assets/Player Assets/Animations/Walking/4.png" id="4_sseuw"]
 [ext_resource type="Texture2D" uid="uid://bj3h6ppnyjy0w" path="res://Assets/Player Assets/Game Ui/Sprites/Full-Heart.png" id="4_afp10"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6liha"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sseuw")
+}],
+"loop": true,
+"name": &"FALL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mvndc")
+}],
+"loop": true,
+"name": &"JUMP",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_e852f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mvndc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sseuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_e852f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e3jp2")
+}],
+"loop": true,
+"name": &"RUN",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e3jp2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cnea"]
 radius = 90.0
@@ -15,21 +65,24 @@ size = Vector2(1418.13, 20)
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c4hpy")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6liha")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4cnea")
 
-[node name="Player_Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_e3jp2")
-
-[node name="Player_Hitbox" type="Area2D" parent="."]
+[node name="Right_Hitbox" type="Area2D" parent="."]
 script = ExtResource("3_8l1kf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_Hitbox"]
 position = Vector2(869.5, 0)
 scale = Vector2(1.37717, 18.4168)
 shape = SubResource("RectangleShape2D_lwtgb")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player_Hitbox"]
+[node name="Left_Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_8l1kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Hitbox"]
 position = Vector2(-869.5, 0)
 scale = Vector2(1.37717, 18.4168)
 shape = SubResource("RectangleShape2D_lwtgb")

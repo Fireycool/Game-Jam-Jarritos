@@ -61,6 +61,7 @@ texture = ExtResource("1_0bb1q")
 [node name="ENTITIES" type="Node2D" parent="."]
 
 [node name="Player" parent="ENTITIES" instance=ExtResource("2_m30yd")]
+position = Vector2(187, 523)
 scale = Vector2(0.2, 0.2)
 
 [node name="Camera2D" type="Camera2D" parent="ENTITIES/Player"]
