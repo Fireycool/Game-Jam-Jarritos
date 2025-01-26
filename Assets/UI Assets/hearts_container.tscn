@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4kfhb8kfvp7b"]
+
+[ext_resource type="Texture2D" uid="uid://bj3h6ppnyjy0w" path="res://Assets/Player Assets/Game Ui/Sprites/Full-Heart.png" id="1_oylp8"]
+
+[node name="HeartsContainer" type="HBoxContainer"]
+offset_right = 5016.0
+scale = Vector2(0.15, 0.15)
+
+[node name="Heart" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Heart"]
+texture = ExtResource("1_oylp8")
+
+[node name="Heart2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Heart2"]
+texture = ExtResource("1_oylp8")
+
+[node name="Heart3" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Heart3"]
+texture = ExtResource("1_oylp8")
+
+[node name="Heart4" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Heart4"]
+texture = ExtResource("1_oylp8")
+
+[node name="Heart5" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Heart5"]
+texture = ExtResource("1_oylp8")
