@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var SPEED = 350.0
 @export var ACCELERATION = 1200.0
 @export var FRICTION = 1400.0
@@ -26,6 +25,8 @@ var coyote_timer : Timer
 var coyote_jump_available : bool = true
 var direction = 1
 var speen = false
+
+
 
 func _ready():
 	# Setup del Input Buffer Timer
@@ -89,12 +90,14 @@ func _physics_process(delta):
 		else:
 			velocity.x = SHOOT_RECOIL * -sign(direction)
 		if velocity.y != 0:
-			velocity.y = velocity.y + SHOOT_BOOST
+			if velocity.y < 0:
+				velocity.y = velocity.y + SHOOT_BOOST
+			else:
+				velocity.y = SHOOT_BOOST
 	
 	if down_shot_attempted:
 		velocity.y = SHOOT_JUMP
 		speen = true
-	
 	
 	# Aplicar Velocidad
 	move_and_slide()

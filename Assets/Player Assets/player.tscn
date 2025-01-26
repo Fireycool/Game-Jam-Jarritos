@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://4bu0b6ve3vs0"]
+
+[ext_resource type="Script" path="res://Assets/Player Assets/player.gd" id="1_c4hpy"]
+[ext_resource type="Texture2D" uid="uid://dx7ro0i2qf6ul" path="res://icon.svg" id="1_obplp"]
+[ext_resource type="Script" path="res://Assets/Gameplay Assets/Hitbox.gd" id="3_8l1kf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cnea"]
+radius = 19.9357
+height = 41.1576
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwtgb"]
+size = Vector2(283.107, 20)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_c4hpy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4cnea")
+
+[node name="Player_Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_obplp")
+
+[node name="Player_Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_8l1kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Hitbox"]
+position = Vector2(175, 0)
+scale = Vector2(1.37717, 2.25683)
+shape = SubResource("RectangleShape2D_lwtgb")
