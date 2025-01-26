@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://4bu0b6ve3vs0"]
+[gd_scene load_steps=21 format=3 uid="uid://4bu0b6ve3vs0"]
 
 [ext_resource type="Script" path="res://Assets/Player Assets/player.gd" id="1_c4hpy"]
 [ext_resource type="Texture2D" uid="uid://dgvfvo2nr1v3i" path="res://Assets/Player Assets/Animations/Walking/Correr_4.png" id="2_0geam"]
@@ -105,6 +105,10 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_asr83"]
 bg_color = Color(1, 0.666667, 0, 1)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3425s"]
+radius = 81.0
+height = 314.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c4hpy")
 
@@ -178,6 +182,13 @@ value = 1.0
 fill_mode = 3
 show_percentage = false
 
+[node name="Player_Hurtbox" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="Player_Hurtbox_Colission" type="CollisionShape2D" parent="Player_Hurtbox"]
+shape = SubResource("CapsuleShape2D_3425s")
+
 [connection signal="animation_finished" from="Right_Shot" to="." method="_on_right_shot_animation_finished"]
 [connection signal="animation_finished" from="Down_Shot" to="." method="_on_down_shot_animation_finished"]
 [connection signal="animation_finished" from="Left_Shot" to="." method="_on_left_shot_animation_finished"]
+[connection signal="area_entered" from="Player_Hurtbox" to="." method="_on_player_hurtbox_area_entered"]

@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 @onready var ammo = $AmmoBar
 
+@onready var gui = $"../Camera2D/GUI"
+
 @export var SPEED = 350.0
 @export var ACCELERATION = 1200.0
 @export var FRICTION = 1400.0
@@ -181,3 +183,9 @@ func _on_down_shot_animation_finished():
 		shoot_down = false
 		$Down_Shot/Lower_Hitbox/CollisionShape2D.disabled = true
 		down_sprite_2d.play("default")
+
+
+func _on_player_hurtbox_area_entered(_area):
+	if gui.has_method("take_damage"):
+		gui.take_damage()
+	
