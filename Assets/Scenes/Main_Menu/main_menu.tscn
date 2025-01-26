@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://d0j1rs0ktcog7"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/Main_Menu/main_menu.gd" id="1_jwifg"]
+[ext_resource type="Texture2D" uid="uid://br3cwt4yj86jp" path="res://placeholders/sketch1737841184264.png" id="2_bbvab"]
+[ext_resource type="Texture2D" uid="uid://dbeilrirr06k1" path="res://Assets/UI Assets/btn_jugar (1).png" id="4_1xsya"]
+[ext_resource type="Texture2D" uid="uid://dnppmkgdgkjcg" path="res://Assets/UI Assets/btn_jugar (3).png" id="5_kshuv"]
+[ext_resource type="Texture2D" uid="uid://buk861f8j6jm1" path="res://Assets/UI Assets/btn_jugar (2).png" id="6_131ss"]
+[ext_resource type="Texture2D" uid="uid://b2x6exx32wriw" path="res://Assets/UI Assets/btn_comoJugar (1).png" id="7_0jysx"]
+[ext_resource type="Texture2D" uid="uid://dorfudcdsirnw" path="res://Assets/UI Assets/btn_comoJugar (3).png" id="8_lffg3"]
+[ext_resource type="Texture2D" uid="uid://dpkta1v406cry" path="res://Assets/UI Assets/btn_comoJugar (2).png" id="9_yfwqv"]
+[ext_resource type="Texture2D" uid="uid://b8ljamktahnaj" path="res://Assets/UI Assets/btn_salir (1).png" id="10_whx73"]
+[ext_resource type="Texture2D" uid="uid://ci1pmwsc0rgif" path="res://Assets/UI Assets/btn_salir (3).png" id="11_f5r8m"]
+[ext_resource type="Texture2D" uid="uid://dtb5e752ipvvf" path="res://Assets/UI Assets/StickySodaLogo.png" id="12_kicmr"]
+[ext_resource type="Texture2D" uid="uid://btolj8jgv5ym6" path="res://Assets/UI Assets/btn_salir (2).png" id="12_rd6ak"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gtnqo"]
+texture = ExtResource("2_bbvab")
+region_rect = Rect2(0, 460.975, 3508, 1844.59)
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jwifg")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gtnqo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 664.0
+offset_right = 2664.0
+offset_bottom = 2000.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_kicmr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -576.0
+offset_right = 712.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.58, 0.58)
+theme_override_constants/separation = 8
+
+[node name="btn_play" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_1xsya")
+texture_pressed = ExtResource("5_kshuv")
+texture_hover = ExtResource("6_131ss")
+stretch_mode = 0
+
+[node name="btn_how2play" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("7_0jysx")
+texture_pressed = ExtResource("8_lffg3")
+texture_hover = ExtResource("9_yfwqv")
+stretch_mode = 0
+
+[node name="btn_exit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("10_whx73")
+texture_pressed = ExtResource("11_f5r8m")
+texture_hover = ExtResource("12_rd6ak")
+stretch_mode = 0
+
+[connection signal="pressed" from="VBoxContainer/btn_play" to="." method="_on_btn_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_how2play" to="." method="_on_btn_how_2_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/btn_exit" to="." method="_on_btn_exit_pressed"]
