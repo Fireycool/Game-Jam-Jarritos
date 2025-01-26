@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://4bu0b6ve3vs0"]
+[gd_scene load_steps=23 format=3 uid="uid://4bu0b6ve3vs0"]
 
 [ext_resource type="Script" path="res://Assets/Player Assets/player.gd" id="1_c4hpy"]
 [ext_resource type="Texture2D" uid="uid://dgvfvo2nr1v3i" path="res://Assets/Player Assets/Animations/Walking/Correr_4.png" id="2_0geam"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://31takcwr3d52" path="res://Assets/Player Assets/Animations/Idle/2.png" id="7_wuhtt"]
 [ext_resource type="Texture2D" uid="uid://h6gd3pmp3qa2" path="res://Assets/Player Assets/Animations/SHOT/3.png" id="8_tcum2"]
 [ext_resource type="Texture2D" uid="uid://cflorspy5eq7j" path="res://Assets/Player Assets/Animations/SHOT/4.png" id="9_505vg"]
+[ext_resource type="AudioStream" uid="uid://d0l0hvft65bnr" path="res://Assets/Audio/new_jump2.mp3" id="14_dmbi3"]
+[ext_resource type="AudioStream" uid="uid://103lwgv0gl6b" path="res://Assets/Audio/spray-86220.mp3" id="15_tnkgy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6liha"]
 animations = [{
@@ -187,6 +189,12 @@ collision_mask = 4
 
 [node name="Player_Hurtbox_Colission" type="CollisionShape2D" parent="Player_Hurtbox"]
 shape = SubResource("CapsuleShape2D_3425s")
+
+[node name="JUMPSOUND" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_dmbi3")
+
+[node name="SHOOT_SOUND" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_tnkgy")
 
 [connection signal="animation_finished" from="Right_Shot" to="." method="_on_right_shot_animation_finished"]
 [connection signal="animation_finished" from="Down_Shot" to="." method="_on_down_shot_animation_finished"]

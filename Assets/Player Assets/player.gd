@@ -71,6 +71,7 @@ func _physics_process(delta):
 	# Manejo de Salto y agregar Gravedad
 	if jump_attempted or input_buffer.time_left > 0:
 		if coyote_jump_available:
+			$JUMPSOUND.play()
 			velocity.y = JUMP_VELOCITY
 			coyote_jump_available = false
 		elif is_on_wall() and horizontal_input != 0:
@@ -112,6 +113,7 @@ func _physics_process(delta):
 	
 	#DISPARO
 	if side_shot_attempted and ammo.value > 1:
+		$SHOOT_SOUND.play()
 		speen = false
 		ammo.value -= 1
 		#ANIMACION DE DISPARO
@@ -143,6 +145,7 @@ func _physics_process(delta):
 
 	
 	if down_shot_attempted and !shoot_down and ammo.value > 1:
+		$SHOOT_SOUND.play()
 		ammo.value -= 1
 		velocity.y = SHOOT_JUMP
 		speen = true
