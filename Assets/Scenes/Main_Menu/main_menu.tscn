@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://Assets/Scenes/Main_Menu/main_menu.gd" id="1_jwifg"]
 [ext_resource type="Texture2D" uid="uid://br3cwt4yj86jp" path="res://placeholders/sketch1737841184264.png" id="2_bbvab"]
 [ext_resource type="Texture2D" uid="uid://dbeilrirr06k1" path="res://Assets/UI Assets/btn_jugar (1).png" id="4_1xsya"]
-[ext_resource type="Texture2D" uid="uid://b5h10rba14gu5" path="res://placeholders/btn_how2play_normal.png" id="5_45ima"]
 [ext_resource type="Texture2D" uid="uid://dnppmkgdgkjcg" path="res://Assets/UI Assets/btn_jugar (3).png" id="5_kshuv"]
-[ext_resource type="Texture2D" uid="uid://k0ugxkl4q6wv" path="res://placeholders/btn_how2play_pressed.png" id="6_7oh1m"]
 [ext_resource type="Texture2D" uid="uid://buk861f8j6jm1" path="res://Assets/UI Assets/btn_jugar (2).png" id="6_131ss"]
-[ext_resource type="Texture2D" uid="uid://c0ji2t8lxq5ud" path="res://placeholders/btn_how2play_hoover.png" id="7_yvx5s"]
+[ext_resource type="Texture2D" uid="uid://b2x6exx32wriw" path="res://Assets/UI Assets/btn_comoJugar (1).png" id="7_0jysx"]
+[ext_resource type="Texture2D" uid="uid://dorfudcdsirnw" path="res://Assets/UI Assets/btn_comoJugar (3).png" id="8_lffg3"]
+[ext_resource type="Texture2D" uid="uid://dpkta1v406cry" path="res://Assets/UI Assets/btn_comoJugar (2).png" id="9_yfwqv"]
 [ext_resource type="Texture2D" uid="uid://b8ljamktahnaj" path="res://Assets/UI Assets/btn_salir (1).png" id="10_whx73"]
 [ext_resource type="Texture2D" uid="uid://ci1pmwsc0rgif" path="res://Assets/UI Assets/btn_salir (3).png" id="11_f5r8m"]
 [ext_resource type="Texture2D" uid="uid://dtb5e752ipvvf" path="res://Assets/UI Assets/StickySodaLogo.png" id="12_kicmr"]
@@ -51,8 +51,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -288.0
-offset_top = -591.0
+offset_top = -576.0
 offset_right = 712.0
+offset_bottom = 190.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.58, 0.58)
@@ -69,9 +70,9 @@ stretch_mode = 0
 [node name="btn_how2play" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture_normal = ExtResource("5_45ima")
-texture_pressed = ExtResource("6_7oh1m")
-texture_hover = ExtResource("7_yvx5s")
+texture_normal = ExtResource("7_0jysx")
+texture_pressed = ExtResource("8_lffg3")
+texture_hover = ExtResource("9_yfwqv")
 stretch_mode = 0
 
 [node name="btn_exit" type="TextureButton" parent="VBoxContainer"]

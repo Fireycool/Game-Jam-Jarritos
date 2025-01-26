@@ -35,9 +35,9 @@ var shoot_left = false
 var shoot_down = false
 var speen = false
 
-var heart_list : Array[TextureRect]
-var health = 5 
+
 var maxHealth = 5
+var currHealth
 
 func _ready():
 	# Setup del Input Buffer Timer

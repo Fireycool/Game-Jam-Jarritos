@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc2lolwgj3i1k"]
+
+[ext_resource type="Script" path="res://Assets/Gameplay Assets/timer.gd" id="1_v5bvy"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_v5bvy")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -168.0
+offset_right = -227.0
+offset_bottom = -126.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3.8, 3.8)
+theme_override_font_sizes/font_size = 30
