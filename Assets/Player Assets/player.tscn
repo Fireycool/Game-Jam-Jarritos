@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://4bu0b6ve3vs0"]
 
 [ext_resource type="Script" path="res://Assets/Player Assets/player.gd" id="1_c4hpy"]
-[ext_resource type="Texture2D" uid="uid://cfm22dj82uc72" path="res://Assets/Player Assets/Animations/Walking/1.png" id="2_e3jp2"]
+[ext_resource type="Texture2D" uid="uid://dgvfvo2nr1v3i" path="res://Assets/Player Assets/Animations/Walking/Correr_4.png" id="2_0geam"]
 [ext_resource type="Script" path="res://Assets/Gameplay Assets/Hitbox.gd" id="3_8l1kf"]
-[ext_resource type="Texture2D" uid="uid://bxw1f7458ubj7" path="res://Assets/Player Assets/Animations/Walking/2.png" id="3_e852f"]
-[ext_resource type="Texture2D" uid="uid://bxc3dmovf0efx" path="res://Assets/Player Assets/Animations/Walking/3.png" id="3_mvndc"]
-[ext_resource type="Texture2D" uid="uid://b1km6gtl1yhe3" path="res://Assets/Player Assets/Animations/Walking/4.png" id="4_sseuw"]
+[ext_resource type="Texture2D" uid="uid://dnkey7oa5se65" path="res://Assets/Player Assets/Animations/Walking/Correr_3.png" id="3_gundc"]
+[ext_resource type="Texture2D" uid="uid://bv3of6r1oah1m" path="res://Assets/Player Assets/Animations/Walking/Correr_2.png" id="4_lu8i4"]
+[ext_resource type="Texture2D" uid="uid://cemhudbqmyk3h" path="res://Assets/Player Assets/Animations/Walking/Correr_1.png" id="5_6tqyk"]
 [ext_resource type="Texture2D" uid="uid://yol27j5mb6xj" path="res://Assets/Player Assets/Animations/Idle/1.png" id="6_d0277"]
 [ext_resource type="Texture2D" uid="uid://djq4nctubx8wy" path="res://Assets/Player Assets/Animations/SHOT/1.png" id="6_jvcdy"]
 [ext_resource type="Texture2D" uid="uid://c1atg66idmd5" path="res://Assets/Player Assets/Animations/SHOT/2.png" id="7_fcyn3"]
@@ -17,7 +17,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_sseuw")
+"texture": ExtResource("2_0geam")
 }],
 "loop": true,
 "name": &"FALL",
@@ -25,7 +25,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_mvndc")
+"texture": ExtResource("3_gundc")
 }],
 "loop": true,
 "name": &"JUMP",
@@ -33,19 +33,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_e852f")
+"texture": ExtResource("4_lu8i4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_mvndc")
+"texture": ExtResource("3_gundc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_sseuw")
+"texture": ExtResource("2_0geam")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_e852f")
+"texture": ExtResource("4_lu8i4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_e3jp2")
+"texture": ExtResource("5_6tqyk")
 }],
 "loop": true,
 "name": &"RUN",
@@ -66,9 +66,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cnea"]
 radius = 90.0
 height = 330.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwtgb"]
-size = Vector2(1473.68, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_erm58"]
 animations = [{
@@ -98,45 +95,34 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwtgb"]
+size = Vector2(1473.68, 20)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c4hpy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6liha")
-frame_progress = 0.918988
+animation = &"FALL"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_4cnea")
-
-[node name="Right_Hitbox" type="Area2D" parent="."]
-script = ExtResource("3_8l1kf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_Hitbox"]
-position = Vector2(900, 0)
-scale = Vector2(1.37717, 18.4168)
-shape = SubResource("RectangleShape2D_lwtgb")
-
-[node name="Left_Hitbox" type="Area2D" parent="."]
-script = ExtResource("3_8l1kf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Hitbox"]
-position = Vector2(-900, 0)
-scale = Vector2(1.37717, 18.4168)
-shape = SubResource("RectangleShape2D_lwtgb")
-
-[node name="Lower_Hitbox" type="Area2D" parent="."]
-script = ExtResource("3_8l1kf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lower_Hitbox"]
-position = Vector2(8.496e-05, 961.752)
-rotation = -1.57079
-scale = Vector2(1.37717, 18.4168)
-shape = SubResource("RectangleShape2D_lwtgb")
 
 [node name="Right_Shot" type="AnimatedSprite2D" parent="."]
 position = Vector2(975, -1)
 scale = Vector2(1.15533, 1)
 sprite_frames = SubResource("SpriteFrames_erm58")
+
+[node name="Right_Hitbox" type="Area2D" parent="Right_Shot"]
+position = Vector2(-843.915, 1)
+scale = Vector2(0.865554, 1)
+script = ExtResource("3_8l1kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_Shot/Right_Hitbox"]
+position = Vector2(900, 0)
+scale = Vector2(1.37717, 18.4168)
+shape = SubResource("RectangleShape2D_lwtgb")
+disabled = true
 
 [node name="Down_Shot" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1033)
@@ -144,8 +130,36 @@ rotation = 1.5708
 scale = Vector2(1.15533, 1)
 sprite_frames = SubResource("SpriteFrames_erm58")
 
+[node name="Lower_Hitbox" type="Area2D" parent="Down_Shot"]
+position = Vector2(-894.117, 0.00373945)
+rotation = -1.5708
+scale = Vector2(1, 0.865554)
+script = ExtResource("3_8l1kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down_Shot/Lower_Hitbox"]
+position = Vector2(8.496e-05, 961.752)
+rotation = -1.57079
+scale = Vector2(1.37717, 18.4168)
+shape = SubResource("RectangleShape2D_lwtgb")
+disabled = true
+
 [node name="Left_Shot" type="AnimatedSprite2D" parent="."]
 position = Vector2(-974.5, 0)
 scale = Vector2(1.15533, 1)
 sprite_frames = SubResource("SpriteFrames_erm58")
 flip_h = true
+
+[node name="Left_Hitbox" type="Area2D" parent="Left_Shot"]
+position = Vector2(843.482, 0)
+scale = Vector2(0.865554, 1)
+script = ExtResource("3_8l1kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Shot/Left_Hitbox"]
+position = Vector2(-900, 0)
+scale = Vector2(1.37717, 18.4168)
+shape = SubResource("RectangleShape2D_lwtgb")
+disabled = true
+
+[connection signal="animation_finished" from="Right_Shot" to="." method="_on_right_shot_animation_finished"]
+[connection signal="animation_finished" from="Down_Shot" to="." method="_on_down_shot_animation_finished"]
+[connection signal="animation_finished" from="Left_Shot" to="." method="_on_left_shot_animation_finished"]

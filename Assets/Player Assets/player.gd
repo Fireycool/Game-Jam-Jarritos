@@ -30,6 +30,9 @@ var input_buffer : Timer
 var coyote_timer : Timer
 var coyote_jump_available : bool = true
 var direction = 1
+var shoot_right = false
+var shoot_left = false
+var shoot_down = false
 var speen = false
 
 var heart_list : Array[TextureRect]
@@ -102,24 +105,27 @@ func _physics_process(delta):
 	#DISPARO
 	if side_shot_attempted:
 		speen = false
-		if horizontal_input:
-			velocity.x = SHOOT_RECOIL * -sign(horizontal_input)
-		else:
-			velocity.x = SHOOT_RECOIL * -sign(direction)
-		if velocity.y != 0:
-			if velocity.y < 0:
-				velocity.y = velocity.y + SHOOT_BOOST
-			else:
-				velocity.y = SHOOT_BOOST
-		
 		#ANIMACION DE DISPARO
-		if direction > 0:
+		if direction > 0 and !shoot_right:
+			velocity.x = SHOOT_RECOIL * -sign(direction)
+			if velocity.y != 0:
+				if velocity.y < 0:
+					velocity.y = velocity.y + SHOOT_BOOST
+				else:
+					velocity.y = SHOOT_BOOST
 			right_sprite_2d.play("SHOT")
-		elif direction < 0:
+			shoot_right = true
+			$Right_Shot/Right_Hitbox/CollisionShape2D.disabled = false
+		elif direction < 0 and !shoot_left:
+			velocity.x = SHOOT_RECOIL * -sign(direction)
+			if velocity.y != 0:
+				if velocity.y < 0:
+					velocity.y = velocity.y + SHOOT_BOOST
+				else:
+					velocity.y = SHOOT_BOOST
 			left_sprite_2d.play("SHOT")
-	else:
-		left_sprite_2d.play("default")
-		right_sprite_2d.play("default")
+			shoot_left = true
+			$Left_Shot/Left_Hitbox/CollisionShape2D.disabled = false
 	
 	if direction > 0:
 		animated_sprite_2d.flip_h = false
@@ -127,12 +133,12 @@ func _physics_process(delta):
 		animated_sprite_2d.flip_h = true
 
 	
-	if down_shot_attempted:
+	if down_shot_attempted and !shoot_down:
 		velocity.y = SHOOT_JUMP
 		speen = true
 		down_sprite_2d.play("SHOT")
-	else:
-		down_sprite_2d.play("default")
+		shoot_down = true
+		$Down_Shot/Lower_Hitbox/CollisionShape2D.disabled = false
 	
 	# Aplicar Velocidad
 	move_and_slide()
@@ -148,3 +154,22 @@ func get_grav(input_dir : float = 0) -> float:
 # Reset coyote jump
 func coyote_timeout() -> void:
 	coyote_jump_available = false
+
+# Reset Right Shot
+func _on_right_shot_animation_finished():
+	if right_sprite_2d.animation == "SHOT":
+		shoot_right = false
+		$Right_Shot/Right_Hitbox/CollisionShape2D.disabled = true
+		right_sprite_2d.play("default")
+
+func _on_left_shot_animation_finished():
+	if left_sprite_2d.animation == "SHOT":
+		shoot_left = false
+		$Left_Shot/Left_Hitbox/CollisionShape2D.disabled = true
+		left_sprite_2d.play("default")
+
+func _on_down_shot_animation_finished():
+	if down_sprite_2d.animation == "SHOT":
+		shoot_down = false
+		$Down_Shot/Lower_Hitbox/CollisionShape2D.disabled = true
+		down_sprite_2d.play("default")
