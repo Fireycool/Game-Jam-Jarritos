@@ -20,6 +20,10 @@ func take_damage():
 	if health>0:
 		health -= 1
 		update_heart_display()
+
+func killbox_hit():
+	health = 0
+	update_heart_display()
 		
 func update_heart_display():
 	for i in range(heart_list.size()):

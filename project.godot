@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Jarritos_Soda_Game"
+config/name="StickySoda"
+config/version="1.0"
 run/main_scene="res://Assets/Scenes/Main_Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/UI Assets/StickySodaLogo.ico"
 
 [autoload]
 
@@ -21,9 +22,8 @@ Global="*res://Assets/Gameplay Assets/Global.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
+window/size/viewport_width=1080
+window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -84,6 +84,7 @@ pause={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Objects"
 2d_physics/layer_5="EndGoal"
+2d_physics/layer_8="Killbox"
 
 [rendering]
 
