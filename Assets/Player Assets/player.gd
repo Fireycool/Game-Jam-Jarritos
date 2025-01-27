@@ -190,7 +190,7 @@ func _on_down_shot_animation_finished():
 func _on_player_hurtbox_area_entered(_area):
 	if gui.has_method("take_damage"):
 		gui.take_damage()
-	
+
 func _on_player_killbox_area_entered(_area):
 	if gui.has_method("killbox_hit"):
 		gui.killbox_hit()

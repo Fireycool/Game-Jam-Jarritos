@@ -190,6 +190,12 @@ collision_mask = 4
 [node name="Player_Hurtbox_Colission" type="CollisionShape2D" parent="Player_Hurtbox"]
 shape = SubResource("CapsuleShape2D_3425s")
 
+[node name="Player_Killbox" type="Area2D" parent="."]
+collision_mask = 128
+
+[node name="Player_Killbox_Colission" type="CollisionShape2D" parent="Player_Killbox"]
+shape = SubResource("CapsuleShape2D_3425s")
+
 [node name="JUMPSOUND" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_dmbi3")
 
@@ -200,3 +206,4 @@ stream = ExtResource("15_tnkgy")
 [connection signal="animation_finished" from="Down_Shot" to="." method="_on_down_shot_animation_finished"]
 [connection signal="animation_finished" from="Left_Shot" to="." method="_on_left_shot_animation_finished"]
 [connection signal="area_entered" from="Player_Hurtbox" to="." method="_on_player_hurtbox_area_entered"]
+[connection signal="area_entered" from="Player_Killbox" to="." method="_on_player_killbox_area_entered"]

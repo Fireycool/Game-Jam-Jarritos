@@ -2,6 +2,7 @@ extends Control
 
 @onready var win_layer = $win_Layer
 @onready var lose_layer =$lose_Layer
+@onready var player = $"../../Player"
 
 var alive: bool = true
 var heart_list : Array[TextureRect]

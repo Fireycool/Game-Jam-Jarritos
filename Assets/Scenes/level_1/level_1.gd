@@ -13,3 +13,4 @@ func level_win():
 
 func level_lose():
 	gui.lose()
+	
